@@ -1,5 +1,5 @@
 .card {
-  width: 323px;
+  width: 220px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -9,8 +9,9 @@
   position: absolute;
   top: 15px;
   margin: 0;
-  font-size: 16px;
   font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .card__image {
