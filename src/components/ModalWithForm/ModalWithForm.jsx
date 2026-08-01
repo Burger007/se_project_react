@@ -1,7 +1,7 @@
 import "./ModalWithForm.css";
 import closeIcon from "../../assets/close button.svg";
 function ModalWithForm({ children, buttonText, title, activeModal, onClose }) {
-  function handleOverlayClick(e) {
+  function handleModalClick(e) {
     if (e.target === e.currentTarget) {
       onClose();
     }
