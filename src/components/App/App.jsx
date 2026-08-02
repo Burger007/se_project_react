@@ -6,7 +6,11 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
-import { coordinates, APIkey } from "../../utils/constants";
+import {
+  coordinates,
+  apiKey,
+  defaultClothingItems,
+} from "../../utils/constants";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -16,7 +20,7 @@ function App() {
   });
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
-
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };
@@ -44,7 +48,7 @@ function App() {
   }, [activeModal]);
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -56,13 +60,18 @@ function App() {
     <div className="page">
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
-        <Main weatherData={weatherData} handleCardClick={handleCardClick} />
+        <Main
+          weatherData={weatherData}
+          handleCardClick={handleCardClick}
+          clothingItems={clothingItems}
+        />
         <Footer />
       </div>
       <ModalWithForm
         title="New Garment"
         buttonText="Add garment"
-        activeModal={activeModal}
+        name="add-garment"
+        isOpen={activeModal === "add-garment"}
         onClose={closeActiveModal}
       >
         <label htmlFor="name" className="modal__label">
@@ -122,7 +131,7 @@ function App() {
         </fieldset>
       </ModalWithForm>
       <ItemModal
-        activeModal={activeModal}
+        isOpen={activeModal === "preview"}
         card={selectedCard}
         onClose={closeActiveModal}
       />
