@@ -1,0 +1,127 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__title {
+  margin: 0 0 24px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.modal__close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  padding: 28px 28px 38px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.modal__input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 0 8px;
+  border: none;
+  border-bottom: 1px solid #d5d5d5;
+  outline: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+.modal__radio-buttons {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal__label {
+  display: block;
+  margin-bottom: 20px;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.modal__legend {
+  margin-bottom: 8px;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.modal__label_type_radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  color: #8a8a8a;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.modal__radio-input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #000;
+}
+
+.modal__submit {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e8e8e8;
+  color: #8a8a8a;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal__close-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  opacity: 0.5;
+  border: none;
+}
