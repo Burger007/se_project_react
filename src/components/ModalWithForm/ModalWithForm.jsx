@@ -1,6 +1,14 @@
 import "./ModalWithForm.css";
 import closeIcon from "../../assets/close button.svg";
-function ModalWithForm({ children, buttonText, title, name, isOpen, onClose }) {
+function ModalWithForm({
+  children,
+  buttonText,
+  title,
+  name,
+  isOpen,
+  onClose,
+  onSubmit,
+}) {
   function handleModalClick(e) {
     if (e.target === e.currentTarget) {
       onClose();
@@ -16,7 +24,7 @@ function ModalWithForm({ children, buttonText, title, name, isOpen, onClose }) {
         <button onClick={onClose} type="button" className="modal__close">
           <img src={closeIcon} alt="Close" className="modal__close-icon" />
         </button>
-        <form className="modal__form" name={name}>
+        <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
           <button type="submit" className="modal__submit">
             {buttonText}

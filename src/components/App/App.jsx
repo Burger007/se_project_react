@@ -38,6 +38,17 @@ function App() {
     setSelectedCard(card);
   };
 
+  const onAddItem = (inputValues) => {
+    const newItemData = {
+      name: inputValues.name,
+      link: inputValues.link,
+      weather: inputValues.weather,
+    };
+
+    setClothingItems([...clothingItems, newItemData]);
+    closeActiveModal();
+  };
+
   const closeActiveModal = () => {
     setActiveModal("");
   };
@@ -82,6 +93,7 @@ function App() {
         <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
+          onAddItem={onAddItem}
         />
         <ItemModal
           isOpen={activeModal === "preview"}
