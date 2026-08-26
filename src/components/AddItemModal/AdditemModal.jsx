@@ -1,6 +1,12 @@
-const AddItemModal = ({ isOpen, onAddItem, onCloseModal }) => {
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
+const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   return (
-    <ModalWithForm>
+    <ModalWithForm
+      title="New Garment"
+      buttonText="Add garment"
+      onClose={onClose}
+    >
       <label className="modal__label">
         Name{" "}
         <input

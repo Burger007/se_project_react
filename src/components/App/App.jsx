@@ -12,6 +12,7 @@ import {
   defaultClothingItems,
 } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnitContext";
+import AddItemModal from "../AddItemModal/AdditemModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -77,13 +78,11 @@ function App() {
           />
           <Footer />
         </div>
-        <ModalWithForm
-          title="New Garment"
-          buttonText="Add garment"
-          name="add-garment"
+
+        <AddItemModal
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
-        ></ModalWithForm>
+        />
         <ItemModal
           isOpen={activeModal === "preview"}
           card={selectedCard}
