@@ -10,3 +10,16 @@ const handleServerResponse = (res) => {
 
 export const getItems = () =>
   fetch(`${baseUrl}/items`, { headers }).then(handleServerResponse);
+
+export const addItem = ({ name, imageUrl, weather }) =>
+  fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ name, imageUrl, weather }),
+  }).then(handleServerResponse);
+
+export const deleteItem = (id) =>
+  fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers,
+  }).then(handleServerResponse);
