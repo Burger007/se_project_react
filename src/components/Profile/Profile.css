@@ -1,4 +1,12 @@
 .profile {
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 0 40px;
+}
+
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+  }
 }

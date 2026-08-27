@@ -100,6 +100,7 @@ function App() {
                 <Profile
                   onCardClick={handleAddClick}
                   clothingItems={clothingItems}
+                  weatherData={weatherData}
                 />
               }
             />
