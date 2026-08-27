@@ -98,9 +98,8 @@ function App() {
               path="/profile"
               element={
                 <Profile
+                  onCardClick={handleAddClick}
                   clothingItems={clothingItems}
-                  handleCardClick={handleCardClick}
-                  handleAddClick={handleAddClick}
                 />
               }
             />
