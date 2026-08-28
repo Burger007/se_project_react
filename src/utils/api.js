@@ -5,7 +5,7 @@ const headers = {
 };
 
 const handleServerResponse = (res) => {
-  return res.ok ? res.json() : Promise.reject(`Error: $(error.status)`);
+  return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
 export const getItems = () =>

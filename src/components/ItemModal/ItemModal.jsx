@@ -1,11 +1,16 @@
 import "./ItemModal.css";
 import closeIcon from "../../assets/close button.svg";
-function ItemModal({ isOpen, onClose, card }) {
+function ItemModal({ isOpen, onClose, card, onCardDelete }) {
   function handleModalClick(e) {
     if (e.target === e.currentTarget) {
       onClose();
     }
   }
+
+  function handleDeleteClick() {
+    onCardDelete(card);
+  }
+
   return (
     <div
       className={`modal ${isOpen ? "modal_opened" : ""}`}
@@ -19,6 +24,13 @@ function ItemModal({ isOpen, onClose, card }) {
         <div className="modal__footer"></div>
         <div className="modal__card">
           <h2 className="modal__caption">{card.name}</h2>
+          <button
+            onClick={handleDeleteClick}
+            type="button"
+            className="modal__delete-btn"
+          >
+            Delete item
+          </button>
           <p className="modal__weather">Weather: {card.weather}</p>
         </div>
       </div>
