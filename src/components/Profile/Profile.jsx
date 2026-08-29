@@ -2,7 +2,12 @@ import ClothesSection from "../ClothesSection/ClothesSection";
 import SideBar from "../SideBar/SideBar";
 import "./Profile.css";
 
-export default function Profile({ clothingItems, onCardClick, weatherData }) {
+export default function Profile({
+  clothingItems,
+  onCardClick,
+  weatherData,
+  onAddClick,
+}) {
   return (
     <section className="profile">
       <SideBar />
@@ -10,6 +15,7 @@ export default function Profile({ clothingItems, onCardClick, weatherData }) {
         onCardClick={onCardClick}
         clothingItems={clothingItems}
         weatherData={weatherData}
+        onAddClick={onAddClick}
       />
     </section>
   );

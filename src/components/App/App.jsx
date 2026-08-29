@@ -56,7 +56,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (!activeModal);
+    if (!activeModal) return;
 
     function handleEscape(e) {
       if (e.key === "Escape") {
@@ -116,9 +116,10 @@ function App() {
               path="/profile"
               element={
                 <Profile
-                  onCardClick={handleAddClick}
+                  onCardClick={handleCardClick}
                   clothingItems={clothingItems}
                   weatherData={weatherData}
+                  onAddClick={handleAddClick}
                 />
               }
             />
@@ -131,11 +132,6 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
           onAddItem={onAddItem}
-        />
-        <ItemModal
-          isOpen={activeModal === "preview"}
-          card={selectedCard}
-          onClose={closeActiveModal}
         />
 
         <ItemModal
