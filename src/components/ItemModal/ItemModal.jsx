@@ -8,7 +8,7 @@ function ItemModal({ isOpen, onClose, card, onCardDelete }) {
   }
 
   function handleDeleteClick() {
-    onCardDelete(card);
+    if (onCardDelete) onCardDelete(card);
   }
 
   return (
