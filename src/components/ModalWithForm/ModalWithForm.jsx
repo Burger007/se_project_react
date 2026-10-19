@@ -8,6 +8,8 @@ function ModalWithForm({
   isOpen,
   onClose,
   onSubmit,
+  altButtonText,
+  onAClick,
 }) {
   function handleModalClick(e) {
     if (e.target === e.currentTarget) {
@@ -26,9 +28,20 @@ function ModalWithForm({
         </button>
         <form onSubmit={onSubmit} className="modal__form" name={name}>
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+          <div className="modal__buttons">
+            <button type="submit" className="modal__submit">
+              {buttonText}
+            </button>
+            {altButtonText && (
+              <button
+                onClick={onAClick}
+                type="button"
+                className="modal__alt-button"
+              >
+                {altButtonText}
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>

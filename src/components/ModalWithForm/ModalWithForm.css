@@ -106,7 +106,7 @@
 
 .modal__submit {
   align-self: flex-start;
-  margin-top: 16px;
+  margin-top: 0;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -124,4 +124,26 @@
   display: block;
   opacity: 0.5;
   border: none;
+}
+
+.modal__buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.modal__alt-btn {
+  padding: 0;
+  border: none;
+  background: none;
+  color: #8a8a8a;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.modal__alt-btn:hover {
+  color: #000;
 }
