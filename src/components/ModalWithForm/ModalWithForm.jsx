@@ -9,7 +9,7 @@ function ModalWithForm({
   onClose,
   onSubmit,
   altButtonText,
-  onAClick,
+  onAltClick,
 }) {
   function handleModalClick(e) {
     if (e.target === e.currentTarget) {
@@ -34,9 +34,9 @@ function ModalWithForm({
             </button>
             {altButtonText && (
               <button
-                onClick={onAClick}
+                onClick={onAltClick}
                 type="button"
-                className="modal__alt-button"
+                className="modal__alt-btn"
               >
                 {altButtonText}
               </button>
