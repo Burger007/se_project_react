@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../../hooks/useForm";
 
-const RegisterModal = ({ isOpen, OnClose, onRegister, onLoginClick }) => {
+const RegisterModal = ({ isOpen, onClose, onRegister, onLoginClick }) => {
   const defaultValues = {
     email: "",
     password: "",
@@ -31,7 +31,7 @@ const RegisterModal = ({ isOpen, OnClose, onRegister, onLoginClick }) => {
       altButtonText="Log in"
       onAltClick={onLoginClick}
       isOpen={isOpen}
-      onClose={OnClose}
+      onClose={onClose}
       onSubmit={handleSubmit}
     >
       <label htmlFor="register-email" className="modal__label">

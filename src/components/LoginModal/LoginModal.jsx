@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useForm } from "../../../hooks/useForm";
 
-const LoginModal = ({ isOpen, onclose, onLogin, onRegisterClick }) => {
+const LoginModal = ({ isOpen, onClose, onLogin, onRegisterClick }) => {
   const defaultValues = {
     email: "",
     password: "",
   };
 
-  const { values, setValues } = useForm(defaultValues);
+  const { values, setValues, handleChange } = useForm(defaultValues);
 
   useEffect(() => {
     if (isOpen) {
