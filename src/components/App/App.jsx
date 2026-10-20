@@ -16,6 +16,7 @@ import { getItems, addItem, deleteItem } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { signUp, signIn, checkToken } from "../../utils/auth";
+import ProtectRoute from "../ProtectRoute/ProtectRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -25,6 +26,7 @@ function App() {
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [isCheckingToken, setIsCheckingToken] = useState(true);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [clothingItems, setClothingItems] = useState([]);
@@ -127,6 +129,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) {
+      setIsCheckingToken(false);
       return;
     }
 
@@ -138,6 +141,9 @@ function App() {
       .catch((err) => {
         console.error(err);
         localStorage.removeItem("jwt");
+      })
+      .finally(() => {
+        setIsCheckingToken(false);
       });
   }, []);
 
@@ -181,12 +187,17 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    onCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    weatherData={weatherData}
-                    onAddClick={handleAddClick}
-                  />
+                  <ProtectRoute
+                    isLoggedIn={isLoggedIn}
+                    isCheckingToken={isCheckingToken}
+                  >
+                    <Profile
+                      onCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      weatherData={weatherData}
+                      onAddClick={handleAddClick}
+                    />
+                  </ProtectRoute>
                 }
               />
             </Routes>
