@@ -200,6 +200,12 @@ function App() {
           .catch(console.error);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser({});
+  };
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <CurrentTemperatureUnitContext.Provider
@@ -240,6 +246,7 @@ function App() {
                       onAddClick={handleAddClick}
                       onEditProfileClick={handleEditProfileClick}
                       onCardLike={handleCardLike}
+                      onLogout={handleLogout}
                     />
                   </ProtectRoute>
                 }
