@@ -18,6 +18,7 @@ export default function Profile({
         clothingItems={clothingItems}
         weatherData={weatherData}
         onAddClick={onAddClick}
+        onCardLike={onCardLike}
       />
     </section>
   );

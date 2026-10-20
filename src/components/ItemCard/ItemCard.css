@@ -1,3 +1,15 @@
+.card {
+  width: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card__image {
+  width: 100%;
+  border-radius: 16px;
+}
+
 .card__header {
   position: absolute;
   top: 15px;
@@ -21,11 +33,11 @@
   height: 20px;
   padding: 0;
   border: none;
-  background: transparent url("../../assets/like.svg") center / contain
+  background: transparent url("../../assets/outlineheart.svg") center / contain
     no-repeat;
   cursor: pointer;
 }
 
 .card__like-btn_active {
-  background-image: url("../../assets/like-active.svg");
+  background-image: url("../../assets/filledheart.svg");
 }
