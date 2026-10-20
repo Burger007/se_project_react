@@ -281,7 +281,7 @@ function App() {
             onLogin={handleLogin}
             onRegisterClick={handleRegisterClick}
           />
-          <EditProfieModal
+          <EditProfileModal
             isOpen={activeModal === "edit-profile"}
             onClose={closeActiveModal}
             onUpdateUser={handleUpdateUser}
