@@ -12,9 +12,16 @@ import AddItemModal from "../AddItemModal/AdditemModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import Profile from "../Profile/Profile";
-import { getItems, addItem, deleteItem } from "../../utils/api";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  updateUserProfile,
+} from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
+
 import { signUp, signIn, checkToken } from "../../utils/auth";
 import ProtectRoute from "../ProtectRoute/ProtectRoute";
 
@@ -40,6 +47,10 @@ function App() {
 
   const handleLoginClick = () => {
     setActiveModal("login");
+  };
+
+  const handleEditProfileClick = () => {
+    setActiveModal("edit-profile");
   };
 
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -94,6 +105,16 @@ function App() {
     signUp({ name, avatar, email, password })
       .then(() => {
         handleLogin({ email, password });
+      })
+      .catch(console.error);
+  };
+
+  const handleUpdateUser = ({ name, avatar }) => {
+    const token = localStorage.getItem("jwt");
+    updateUserProfile({ name, avatar }, token)
+      .then((user) => {
+        setCurrentUser(user);
+        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -196,6 +217,7 @@ function App() {
                       clothingItems={clothingItems}
                       weatherData={weatherData}
                       onAddClick={handleAddClick}
+                      onEditProfileClick={handleEditProfileClick}
                     />
                   </ProtectRoute>
                 }
@@ -229,6 +251,11 @@ function App() {
             onClose={closeActiveModal}
             onLogin={handleLogin}
             onRegisterClick={handleRegisterClick}
+          />
+          <EditProfieModal
+            isOpen={activeModal === "edit-profile"}
+            onClose={closeActiveModal}
+            onUpdateUser={handleUpdateUser}
           />
         </div>
       </CurrentTemperatureUnitContext.Provider>

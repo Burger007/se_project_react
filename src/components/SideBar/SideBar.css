@@ -21,3 +21,30 @@
   font-weight: 700;
   font-size: 16px;
 }
+
+.sidebar__avatar_placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.sidebar__button {
+  display: block;
+  margin-top: 16px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+
+.sidebar__button:hover {
+  opacity: 0.6;
+}

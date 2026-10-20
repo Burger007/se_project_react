@@ -7,10 +7,11 @@ export default function Profile({
   onCardClick,
   weatherData,
   onAddClick,
+  onEditProfileClick,
 }) {
   return (
     <section className="profile">
-      <SideBar />
+      <SideBar onEditProfileClick={onEditProfileClick} />
       <ClothesSection
         onCardClick={onCardClick}
         clothingItems={clothingItems}
