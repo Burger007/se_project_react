@@ -8,6 +8,7 @@ export default function ClothesSection({
   onCardClick,
   weatherData,
   onAddClick,
+  onCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
   const userItems = clothingItems.filter(
@@ -25,7 +26,12 @@ export default function ClothesSection({
       <ul className="clothes-section__items">
         {userItems.map((item) => {
           return (
-            <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+            <ItemCard
+              key={item._id}
+              item={item}
+              onCardClick={onCardClick}
+              onCardLike={onCardLike}
+            />
           );
         })}
       </ul>

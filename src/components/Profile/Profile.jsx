@@ -8,6 +8,7 @@ export default function Profile({
   weatherData,
   onAddClick,
   onEditProfileClick,
+  onCardLike,
 }) {
   return (
     <section className="profile">

@@ -17,6 +17,8 @@ import {
   addItem,
   deleteItem,
   updateUserProfile,
+  addCardLike,
+  removeCardLike,
 } from "../../utils/api";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -179,6 +181,24 @@ function App() {
       })
       .catch(console.error);
   };
+  const handleCardLike = ({ id, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? addCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch(console.error)
+      : removeCardLike(id, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch(console.error);
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -202,6 +222,7 @@ function App() {
                     weatherData={weatherData}
                     handleCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
                   />
                 }
               />
@@ -218,6 +239,7 @@ function App() {
                       weatherData={weatherData}
                       onAddClick={handleAddClick}
                       onEditProfileClick={handleEditProfileClick}
+                      onCardLike={handleCardLike}
                     />
                   </ProtectRoute>
                 }
