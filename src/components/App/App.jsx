@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import ItemModal from "../ItemModal/ItemModal";
@@ -34,6 +34,7 @@ function App() {
     city: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [isCheckingToken, setIsCheckingToken] = useState(true);
   const [activeModal, setActiveModal] = useState("");
@@ -98,6 +99,7 @@ function App() {
       .then((user) => {
         setCurrentUser(user);
         setIsLoggedIn(true);
+        navigate("/");
         closeActiveModal();
       })
       .catch(console.error);
