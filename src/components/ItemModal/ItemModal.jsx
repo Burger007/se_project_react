@@ -5,7 +5,7 @@ import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemModal({ isOpen, onClose, card, onCardDelete }) {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner === currentUser._id;
+  const isOwner = card.owner === currentUser._id;
   function handleModalClick(e) {
     if (e.target === e.currentTarget) {
       onClose();
@@ -29,7 +29,7 @@ function ItemModal({ isOpen, onClose, card, onCardDelete }) {
         <div className="modal__footer"></div>
         <div className="modal__card">
           <h2 className="modal__caption">{card.name}</h2>
-          {isOwn && (
+          {isOwner && (
             <button
               onClick={handleDeleteClick}
               type="button"
