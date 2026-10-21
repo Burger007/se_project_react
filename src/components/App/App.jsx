@@ -67,7 +67,7 @@ function App() {
     setSelectedCard(card);
   };
 
-  const onAddItem = (inputValues) => {
+  const onAddItem = (inputValues, resetForm) => {
     const newItemData = {
       name: inputValues.name,
       imageUrl: inputValues.imageUrl,
@@ -78,6 +78,7 @@ function App() {
     addItem(newItemData, token)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
+        closeActiveModal();
         closeActiveModal();
       })
       .catch(console.error);
