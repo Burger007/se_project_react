@@ -8,7 +8,7 @@ import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import { coordinates, apiKey } from "../../utils/constants";
 import CurrentTemperatureUnitContext from "../../contexts/currentTemperatureUnitContext";
-import AddItemModal from "../AddItemModal/AdditemModal";
+import AddItemModal from "../AddItemModal/AddItemModal";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 import Profile from "../Profile/Profile";
@@ -25,7 +25,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 import { signUp, signIn, checkToken } from "../../utils/auth";
-import ProtectRoute from "../ProtectRoute/ProtectRoute";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -238,7 +238,7 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <ProtectRoute
+                  <ProtectedRoute
                     isLoggedIn={isLoggedIn}
                     isCheckingToken={isCheckingToken}
                   >
@@ -251,7 +251,7 @@ function App() {
                       onCardLike={handleCardLike}
                       onLogout={handleLogout}
                     />
-                  </ProtectRoute>
+                  </ProtectedRoute>
                 }
               />
             </Routes>

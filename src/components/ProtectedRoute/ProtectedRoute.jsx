@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-function ProtectRoute({ isLoggedIn, isCheckingToken, children }) {
+function ProtectedRoute({ isLoggedIn, isCheckingToken, children }) {
   if (isCheckingToken) {
     return null;
   }
@@ -10,4 +10,4 @@ function ProtectRoute({ isLoggedIn, isCheckingToken, children }) {
   return children;
 }
 
-export default ProtectRoute;
+export default ProtectedRoute;
