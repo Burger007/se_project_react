@@ -78,7 +78,7 @@ function App() {
     addItem(newItemData, token)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
-        closeActiveModal();
+        resetForm();
         closeActiveModal();
       })
       .catch(console.error);
